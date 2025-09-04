@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div id="app">
+        <div class="panelhead" v-show="open">
+            <div @click="FixVeh()"><i class="bi bi-wrench-adjustable"></i> Fix</div>
+            <div @click="Replace()"><i class="bi bi-arrow-counterclockwise"></i> Replace</div>
+            <div @click="Clean()"><i class="bi bi-stars"></i> Clean</div>
+            <div @click="OpenSpawn(!spawnopen)"><i class="bi bi-gear"></i> Component</div>
+        </div>
+
+        <div class="vehpanel" v-show="vehopen">
+            <div class="vehcont">
+                <div v-for="(item, index) in components" :key="index" class="comp" @click="item.func">
+                    <img :src="'icons/'+item.icon+'.png'" v-if="item.customicon">
+                    <i v-else :class="item.icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
