@@ -1,0 +1,1 @@
+Fivem simple vehicle panel
