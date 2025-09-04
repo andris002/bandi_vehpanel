@@ -53,14 +53,18 @@ RegisterNuiCallback('clean', function(_, cb)
 end)
 
 RegisterNuiCallback('tireremove', function(num, cb)
-    local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
-    BreakOffVehicleWheel(vehicle, num, true, false, true, false)
+    if isAdmin then 
+        local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
+        BreakOffVehicleWheel(vehicle, num, true, false, true, false)
+    end
     cb('ok')
 end)
 
 RegisterNuiCallback('doorremove', function(num, cb)
-    local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
-    SetVehicleDoorBroken(vehicle, num, false)
+    if isAdmin then 
+        local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
+        SetVehicleDoorBroken(vehicle, num, false)
+    end
     cb('ok')
 end)
 
